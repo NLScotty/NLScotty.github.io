@@ -15,9 +15,10 @@
       <h3>Blog Posts</h3>
       <div id="navcontainer">
         <ul>
-          <li><a href="#">Blog Post 1</a> </li>
+          <li><a href="#">Creating Restful APIs with Node.js and Express (1)</a> </li>
         </ul>
       </div>
+      <!--
       <h3>Archives</h3>
       <ul>
         <li><a href="#">March 2007</a></li>
@@ -25,6 +26,7 @@
         <li><a href="#">January 2007</a></li>
         <li><a href="#">December 2006</a></li>
       </ul>
+      -->
     </div>
     <div id="content">
       <h3>Creating Restful APIs with Node.js and Express <span style="color: #3484B1;"> (Part 1)</span></h3>
@@ -52,7 +54,7 @@
       <p>Now at this point, you may be wondering “I guess that is cool, but I could print out hello world in browser without node.js. Surely there is a reason why we would want to run JavaScript code in this format, right?”. Correct! Let's think about web application architecture for a moment.</p>
       <h4>Web Application Architecture</h4>
       <p>A web application is simply a program that is executed on a remote server and is interacted with through a browser interface. To better clarify, lets observe the diagram below:</p>
-      <blockquote>Diagram Here</blockquote>
+      <img src="images/Web-Arch-Diagram.png" width="500" height="200" alt="Web Architecture Diagram">
       <p>The client uses a web browser to send requests to the client-side computer, which returns a response that is displayed on the client's computer. Though how does the server computer know what to send through the client computer? What reads the client's request and comes with an appropriate response? How does the computer even know to listen to incoming requests? All these things are done through the program that Is ran on the server-side computer. Remember how node.js allows java code to be ran on a computer? Well, this is the main reason why node.js is used; to run server-side programs!</p>
       <h4>What is Restful? What is a Restful API?</h4>
       <p>In a web application, the best practice is to program into the server a Restful API. To understand what that means, lets break down the words "API" and "Restful".</p>
@@ -62,7 +64,7 @@
       <p>There are several different methods a restful API can handle these requests, though it mostly comes down to two major methods: GET and POST. GET is often utilized when there is no data attached to the request, while POST is used when data is attached to the request. I'll talk more on this in the video below.</p>
       <h4>Creating a Restful API with Node</h4>
       <p>Now that we know where JavaScript code fits into our application, lets start programming! Follow along in the video below.</p>
-      <blockquote>Insert Video Here</blockquote>
+      <iframe width="500" height="315" src="https://www.youtube.com/embed/BFFj81odQrk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <h4>What is Express?</h4>
       <p>You could technically write an entire backend API in the matter that I have showcased in the above video, but there are a couple of flaws behind that:</p>
       <p>1.	No code segregation: all the routes and code for those routes are on the one page. For larger projects it's going to make for one file with thousands of lines of code. Rember that each endpoint will contain all the logic for when it is called too!</p>
