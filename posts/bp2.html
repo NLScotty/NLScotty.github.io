@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>My Blog</title>
+<link href="../style.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<div id="wrap">
+  <div id="masthead">
+    <h1>Alb'ewfie Algorithms</h1>
+    <h2><a href="../index.html">homepage</a> | <a href="scott.b.normore@gmail.com">contact</a> </h2>
+  </div>
+  <div id="container">
+    <div id="sidebar">
+      <h3>Blog Posts</h3>
+      <div id="navcontainer">
+        <ul>
+          <li><a href="bp1.html">Creating Restful APIs with Node.js(1)</a> </li>
+          <li><a href="#">Creating Restful APIs with Express (2)</a> </li>
+        </ul>
+      </div>
+      <!--
+      <h3>Archives</h3>
+      <ul>
+        <li><a href="#">March 2007</a></li>
+        <li><a href="#">February 2007</a></li>
+        <li><a href="#">January 2007</a></li>
+        <li><a href="#">December 2006</a></li>
+      </ul>
+      -->
+    </div>
+    <div id="content">
+      <h3>Creating Restful APIs with Express <span style="color: #3484B1;"> (Part 2)</span></h3>
+      <h4>Introduction</h4>
+      <p> Last time we left off, we learned about web application architecture, RESTful APIs, Node.js, how to create a backend API with Node.js, and how to set up Express. Today, we will continue this by creating the same backend API that was created with only Node.js with Express, a small tutorial on postman, a more complete backend API that handles GET, POST, PATCH, and DELETE HTTP requests, and a couple of answers to questions I have received from the first blog.</p>
+      <p> Without further ado, lets continue!</p>
+      <h4>Why Express over pure Node.js</h4>
+      <p>In this brief video, I will contrast and compare a pure node.js backend and an express backend</p>
+      <iframe width="500" height="315" src="https://www.youtube.com/embed/w0MR7W1hMPo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      <p> Code for both of these can be <a href="#https://github.com/NLScotty/BlogCode"> found here.</a> We will use this code in the next session </p>
+
+      <h4>Postman and an introduction to Using Postman.</h4>
+      <p>Postman is a backend API tool that is used to test back-end APIs. It can also be used for some methods of penetration testing/hacking, but we will be using this to test our API built with express. While that may sound like a lot, it is easy to install and use. To download, just follow the steps on this <a href="https://www.postman.com/"> link </a>. You may need to create an account to use postman, but they are free! </p>
+      <p>While I'll better explain this application through the video, I'll demonstrate some basics by testing the API that we previously created using Postman. </p>
+      <p>With server.js running in the background, complete the following steps,</p>
+      <p>1. Press the new button highlighted in the image (or press the new button in the file tab in the top left)</p>
+      <img src="images/s1.jpg" width="500" height="200" alt="Step1">
+      <p>2.	Select HTTP request. We are selecting this option because we are going to test how our backend handles different oncoming HTTP requests. </p>
+      <img src="images/s2.jpg" width="500" height="200" alt="Step2">
+      <p>3.	Make sure that the HTTP request is on get, and that the URL being tested (default URL) is in the text box.</p>
+      <p>4.	Press send and observe the result. Notice that the result is the html document that is generated when the URL for the server is entered.</p>
+      <img src="images/s34.jpg" width="500" height="200" alt="Step34">
+      <p>Result:</p>
+      <img src="images/r1.jpg" width="500" height="200" alt="Result1">
+      <p>5.	We are now going to send a post request. Change the request type to Post</p>
+      <p>6.	Post requests are often sent with data. Change the datatype to "x-www-form-uriencoded". This is the default way forms send data. </p>
+      <p>7.	Enter in the form data. In this example, the key is "username" (name of the field in form), and the value can be any name you want to display to the page (in this case, John Doe).</p>
+      <p>8.	Send it off and observe the result. We have sent back to the user the generated HTML document that our back end would generate upon filling out the form and pressing submit.</p>
+      <img src="images/s5678.jpg" width="500" height="200" alt="Step5678">
+      <p>Result:</p>
+      <img src="images/r2.jpg" width="500" height="200" alt="Result2">
+      <p>While one may have an easier time testing this backend API through a browser, there are many instances where a backend may not return an html document. In-fact; a MERN stack encourages the re-rendering of a single page depending on the information being sent to it. In these applications, we send back data instead of a webpage, making it hard to see the result of the endpoint through a browser. Postman helps with this by displaying the data instead. We will touch on this more later in the blog.</p>
+      <h4>Using Express to create a back-end API</h4>
+      <p>In this segment, I will outline the plan that I have made for the web application and the endpoints we are going to cover. In the video, I'll demonstrate the completed application and postman connecting to those endpoints.</p>
+      <p>The plan is to make a note taking application. The application will have two types of data: Users and Notes. User's will consist of a name and a password. Notes will consist of an owner, a title, a description, and an ID. The structure of these objects would look like this:</p>
+      <img src="images/p2.png" width="500" height="200" alt="Plan1">
+      <p>One should be able to sign up for an account and login. For testing purposes, I'll add a back-end point that allows one to see all the users in the system. Users will also have the ability see all the notes available through their User ID, and to be able add, update, and delete notes through the notes note id. In addition, I'll add an end point to see a note by their ID. A technique that I like to employ for building a back-end API is to visually plan out what back-end points are required; so, let's do that!</p>
+      <img src="images/p1.png" width="500" height="200" alt="Plan2">
+      <p>From this diagram, it is easy to categorize our end points into two categories; end points that interact with user objects, and end points that interact with notes. It is important to identify these relationships so that we can better layout our backend API and apply filters to those endpoints if needed. </p>
+      <p>And that's the basics of planning a back-end API! I'll now go over the back end API I created in the following video.</p>
+      <iframe width="500" height="315" src="https://www.youtube.com/embed/kkIrc0rUmPU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <h4>Conclusion</h4>
+      <p>And that's a wrap. I'm going to end this blog with a few more videos that explain some other related stuff to back-end APIs. Feel free to look at them! The code in them is from a project that some of my peer and I have been working on.</p>
+      <h4>Hooking an express API to front end:</h4>
+      <iframe width="500" height="315" src="https://www.youtube.com/embed/Dlbv5WvSpsM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>Related Links: <a href="https://www.ibm.com/docs/en/cics-ts/5.3?topic=protocol-http-requests">More on HTTP Requests</a> , <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch">More on Fetch </a></p>
+      <h4>Hooking an express API to a Mongo Atlas Database:</h4>
+      <iframe width="500" height="315" src="https://www.youtube.com/embed/Dtt2sv5Rl20" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <p>Related Links: <a href="https://madpgmer.github.io/Post1/">More on Mongo Atlas in Madhu's Blog</a>, <a href="https://www.techomoro.com/connect-mongodb-atlas-with-express-backend/">More on connecting express to mongo atlas</a></p>
+      <h4>References</h4>
+      <p>M. Schwarzmuller and M. Lorenz, "React, nodejs, Express and MongoDB - The Mern Fullstack Guide," Udemy. [Online]. Available: <a href ="https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide/"> https://www.udemy.com/course/react-nodejs-express-mongodb-the-mern-fullstack-guide/</a href> </p>
+
+    </div>
+  </div>
+  <div id="footer"> <a href="../index.html">homepage</a> | <a href="scott.b.normore@gmail.com">contact</a>| Scott Normore 2022 | Design by <a href="http://www.mitchinson.net"> www.mitchinson.net</a><br/>
+</div>
+</body>
+</html>
